@@ -26,15 +26,20 @@
   <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoienR1cmFuaSIsImEiOiJSOWZaS3BZIn0.8eO19MJukI0txn8CpoMSxw';
   const bounds = [
-    [-19.687841, 45.528259], // Southwest coordinates
-    [ 25.898437, 61.805565] // Northeast coordinates
+    [-30, 45], // Southwest coordinates
+    [ 25, 60] // Northeast coordinates
     ];
   const map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/zturani/cli0g9cwj02fc01qyangb07hn', // stylesheet location
-    center: [0,53], // starting position [lng, lat]
+    center: [-10,50], // starting position [lng, lat]
     zoom: 4,
-    maxBounds: bounds // starting zoom
+    //pitch: 20,
+    //bearing: -10,
+    maxBounds: bounds, // starting zoom
+    projection: {
+            name: 'mercator'
+        }
   });
 
   map.on('load', () => {
